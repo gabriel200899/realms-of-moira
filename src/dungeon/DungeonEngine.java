@@ -44,7 +44,6 @@ public class DungeonEngine {
 			Encounters.encounter1();
 			Encounters.encounter2();
 		}
-		// To avoid bugs
 		inUse.remove(0);
 	}
 

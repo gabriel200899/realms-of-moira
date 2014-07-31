@@ -9,6 +9,13 @@ import dungeon.DungeonEngine;
 
 public class Data {
 
+	// TODO: make this a single string. Faster is better.
+	public static String info[] = {
+		"                Realms of Moira",
+		"Authors:        Bernardo Sulzbach",
+		"Source Code:    mafagafogigante/realms-of-moira",
+		"Contact:        mafagafogigante@gmail.com"};
+	
 	static Scanner input = new Scanner(System.in);
 	public static String[] availableClasses = { "1. [Mage]", "2. [Rogue]",
 			"3. [Shaman]", "4. [Priest]" };
@@ -24,9 +31,7 @@ public class Data {
 			"elf" };
 
 	public static void info() {
-		System.out.println("Author:\tBernardo Sulzbach\n"
-				+ "GitHub:\tbesulzbach/realmsofmoira/\n"
-				+ "E-mail:\tbesulzbach@gmail.com");
+		for (String string : info) System.out.println(string);
 	}
 
 	public static void start() {
