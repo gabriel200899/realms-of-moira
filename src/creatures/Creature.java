@@ -11,6 +11,9 @@ public class Creature {
 	private ArrayList<String> skillsInfo = new ArrayList<String>();
 	private ArrayList<String> skillsArray = new ArrayList<String>();
 	private ArrayList<Integer> skillsMana = new ArrayList<Integer>();
+
+	// We add a kill counter
+	private KillCounter;
 	
 	private int level = 1;
 	private int experience = 0;
@@ -478,8 +481,11 @@ public class Creature {
 		this.gold += creature.gold;
 		System.out.println("You got " + creature.gold + " gold coins.");
 		this.experience += creature.experience;
-		System.out.println("You got " + creature.experience
-				+ " experience points.");
+		System.out.println("You got " + creature.experience + " experience points.");
 	}
 
+}
+
+class KillCounter {
+	// Implement this.
 }
