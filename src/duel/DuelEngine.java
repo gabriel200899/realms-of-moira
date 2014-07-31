@@ -26,11 +26,6 @@ public class DuelEngine {
 		}
 	}
 
-	public static void clearInUse() {
-		inUse.remove(0);
-		inUse.remove(0);
-	}
-
 	public static void create() {
 
 		int firstRole = Data
@@ -82,7 +77,7 @@ public class DuelEngine {
 	public static void start() {
 		create();
 		startGame();
-		clearInUse();
+		inUse.clear();
 	}
 
 	public static void startGame() {
