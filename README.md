@@ -4,7 +4,7 @@ A simple text-based RPG written in Java.
 
 Running the game
 ================
-Download our [latest build.](https://github.com/mafagafogigante/realms-of-moira/blob/0.02a/build/realms_of_moira_0.02a.jar)
+Download our [latest build.](https://github.com/mafagafogigante/realms-of-moira/raw/0.02a/build/realms_of_moira_0.02a.jar)
 <br>
 In a terminal, browse to the folder where you downloaded the file and run
 ```bash
