@@ -8,8 +8,8 @@ import creatures.foes.Wolf;
 
 final class Encounters {
 
-	// A string with 79 '=' used as a separator.
-	static final String blankLine = "================================================================================";
+	// A string with 78 '=', used as a separator.
+	static final String blankLine = "===============================================================================";
 	static final String encounter1Dialog = "You are in a dark cave.\n"
 			+ "You hear something flying in your direction.\n"
 			+ "The dim light that enters the cave reveals a bat.\n"

@@ -12,7 +12,7 @@ import dungeon.DungeonEngine;
 public class Data {
 
 	// Stores the SimpleDateFormat used when printing the time.
-	private final static SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSS dd-MM-yyyy");
+	private final static SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSS dd/MM/yyyy");
 
 	// TODO: make this a single string. Faster is better.
 	public static String info[] = {
