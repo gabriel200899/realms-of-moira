@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class Creature {
 
-	private String name;
-	private String role;
-	private String race;
+	private String name, role, race;
 	
+	// TODO: make skill a class, so we only use one ArrayList.
 	private ArrayList<String> skills = new ArrayList<String>();
 	private ArrayList<String> skillsInfo = new ArrayList<String>();
 	private ArrayList<String> skillsArray = new ArrayList<String>();
