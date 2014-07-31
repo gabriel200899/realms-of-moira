@@ -19,3 +19,13 @@ We welcome all developers to help us to write a better, cleaner and faster game.
 Found an issue? Please report it at https://github.com/mafagafogigante/realms-of-moira/issues
 <br>
 Have a suggestion? Please leave it at https://github.com/mafagafogigante/realms-of-moira/issues
+
+Coding workflow
+===============
+Fork this repository.
+<br>
+Add https://github.com/mafagafogigante/realms-of-moira as your upstream remote.
+<br>
+Keep your master branch clean so you can easily push our changes.
+<br>
+Create a new branch and be sure that, in your pull request, you specify what you are changing.
