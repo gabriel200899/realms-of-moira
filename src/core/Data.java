@@ -1,6 +1,8 @@
 package core;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 import creatures.Creature;
@@ -8,6 +10,9 @@ import duel.DuelEngine;
 import dungeon.DungeonEngine;
 
 public class Data {
+
+	// Stores the SimpleDateFormat used when printing the time.
+	private final static SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSS dd-MM-yyyy");
 
 	// TODO: make this a single string. Faster is better.
 	public static String info[] = {
@@ -68,11 +73,14 @@ public class Data {
 						return givenInt;
 				} else if (input.hasNext()) {
 					String givenString = input.next().toLowerCase();
-					givenString = givenString.replaceAll("\\s", "").replaceAll(
-							"\\W", "");
-					exitCheck(givenString);
-					if (givenString.equals("exit"))
-						System.exit(0);
+					givenString = givenString.replaceAll("\\s", "").replaceAll("\\W", "");
+					// Checks if the user issued a valid command.
+					if (commandCheck(givenString)) {
+						// We do not say that we have an invalid input.
+						System.out.print("Input: ");
+						input.nextLine();
+						continue;
+					}
 					for (int i = 0; i < array.length; i++) {
 						if (array[i].equals(givenString))
 							return (i + 1);
@@ -89,13 +97,13 @@ public class Data {
 			System.out.print(question);
 			if (input.hasNext()) {
 				String givenString = input.next();
-				exitCheck(givenString);
-				if (givenString.length() > 4) {
+				// Checks if the user issued a valid command.
+				if (commandCheck(givenString))
+					continue;
+				if (givenString.length() > 4)
 					return givenString;
-				} else {
-					System.out
-							.println("Name must be at least five characters.");
-				}
+				else
+					System.out.println("Name must be at least five characters long.");
 			} else {
 				System.out.println("Invalid input. Try again.");
 			}
@@ -208,10 +216,21 @@ public class Data {
 		System.out.printf("\tCurse:       %d\n\n", inUse.get(1).getCurse());
 	}
 
-	private static void exitCheck(String givenString) {
-		if (givenString.replaceAll("\\s", "").replaceAll("\\W", "")
-				.equals("exit"))
+	private static boolean commandCheck(String givenString) {
+		String string = givenString.replaceAll("\\s", "").replaceAll("\\W", "");
+		// "exit" - exits the application
+		// "quit" - exits the application
+		if (string.equals("exit") || string.equals("quit")) {
 			System.exit(0);
+			return false;
+		}
+		// "time" - prints the current time
+		else if (string.equals("time")) {
+			System.out.println(dateFormat.format(new Date()));
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
-
 }
