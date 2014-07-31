@@ -52,12 +52,10 @@ public class DuelEngine {
 
 	public static void endGame() {
 		if (inUse.get(0).isAlive()) {
-			System.out.printf("%s is dead! %s wins!\n", inUse.get(1).getRole(),
-					inUse.get(0).getRole());
+			System.out.printf("%s is dead! %s wins!\n", inUse.get(1).getRole(),	inUse.get(0).getRole());
 			inUse.get(0).evaluateLevel();
 		} else {
-			System.out.printf("%s is dead! %s wins!\n", inUse.get(0).getRole(),
-					inUse.get(1).getRole());
+			System.out.printf("%s is dead! %s wins!\n", inUse.get(0).getRole(), inUse.get(1).getRole());
 			inUse.get(1).evaluateLevel();
 		}
 	}
