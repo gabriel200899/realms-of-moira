@@ -12,6 +12,10 @@ java -jar realms_of_moira_0.02a.jar
 ```
 (Supposing the file is called realms_of_moira_0.02a.jar)
 
+Screenshots
+===========
+![realms_of_moira](https://github.com/mafagafogigante/realms-of-moira/blob/development/screenshots/screenshot_dungeon_windows.png)
+
 Contributing to the project
 ===========================
 We welcome all developers to help us to write a better, cleaner and faster game.
@@ -29,3 +33,9 @@ Add https://github.com/mafagafogigante/realms-of-moira as your upstream remote.
 Keep your master branch clean so you can easily push our changes.
 <br>
 Create a new branch and be sure that, in your pull request, you specify what you are changing.
+
+Java support
+============
+We try to support jre7 and jre8.
+<br>
+If you are finding problems to run Realms of Moira try updating to the latest Java version.
