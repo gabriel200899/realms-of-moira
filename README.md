@@ -14,7 +14,7 @@ java -jar realms_of_moira_0.02a.jar
 
 Screenshots
 ===========
-
+![realms_of_moira](https://github.com/mafagafogigante/realms-of-moira/blob/development/screenshots/screenshot_dungeon_windows.png)
 
 Contributing to the project
 ===========================
@@ -34,6 +34,8 @@ Keep your master branch clean so you can easily push our changes.
 <br>
 Create a new branch and be sure that, in your pull request, you specify what you are changing.
 
-JRE support
-===========
-We try to support JRE7 and JRE8. If you are finding problems to run Realms of Moira try updating to JRE8.
+Java support
+============
+We try to support jre7 and jre8.
+<br>
+If you are finding problems to run Realms of Moira try updating to the latest Java version.
