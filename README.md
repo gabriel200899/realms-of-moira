@@ -14,7 +14,7 @@ java -jar realms_of_moira_0.02a.jar
 
 Screenshots
 ===========
-![realms_of_moira](https://github.com/mafagafogigante/realms-of-moira/blob/development/screenshots/screenshot_dungeon_windows.png)
+![realms_of_moira](https://github.com/mafagafogigante/realms-of-moira/blob/master/screenshots/screenshot_dungeon_windows.png)
 
 Contributing to the project
 ===========================
