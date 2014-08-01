@@ -2,6 +2,7 @@ package core;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -57,10 +58,11 @@ public class Data {
 
     public static void printArray(String[] left, String[] right) {
         for (int i = 0; i < left.length; i++) {
-            System.out.print(left[i]);
-            for (int n = 0; n < 79 - left[i].length() - right[i].length(); n++)
-                System.out.print(".");
-            System.out.println(right[i]);
+            // Creates an array of characters with proper length and fills it with dots.
+            char[] dots = new char[79 - left[i].length() - right[i].length()];
+            Arrays.fill(dots, '.');
+            // Only one print statement.
+            System.out.println(left[i] + new String(dots) + right[i]);
         }
     }
 
@@ -127,16 +129,12 @@ public class Data {
     // TODO: find a better and faster way to print all this stuff.
     public static void refresh(ArrayList<Creature> inUse) {
         System.out.println();
-        System.out.printf("\t[1][%s][%s]", inUse.get(0).getRole(), inUse.get(0)
-                .getRace());
-        for (int n = 0; n < 25 - inUse.get(0).getRole().length()
-                - inUse.get(0).getRace().length(); n++)
+        System.out.printf("\t[1][%s][%s]", inUse.get(0).getRole(), inUse.get(0).getRace());
+        for (int n = 0; n < 25 - inUse.get(0).getRole().length() - inUse.get(0).getRace().length(); n++) {
             System.out.print(" ");
-        System.out.printf("[2][%s][%s]\n\n", inUse.get(1).getRole(),
-                inUse.get(1).getRace());
-
+        }
+        System.out.printf("[2][%s][%s]\n\n", inUse.get(1).getRole(), inUse.get(1).getRace());
         System.out.print("\t[GENERAL]                       [GENERAL]\n");
-
         System.out.printf("\tHealth:      %d", inUse.get(0).getHealth());
         for (int n = 0; n < 19
                 - String.valueOf(inUse.get(0).getHealth()).length()
