@@ -58,11 +58,9 @@ public class Data {
 
     public static void printArray(String[] left, String[] right) {
         for (int i = 0; i < left.length; i++) {
-            // Creates an array of characters with proper length and fills it with dots.
-            char[] dots = new char[79 - left[i].length() - right[i].length()];
-            Arrays.fill(dots, '.');
+            // This implementation is faster than looping and appending a dot to the string multiple times.
             // Only one print statement.
-            System.out.println(left[i] + new String(dots) + right[i]);
+            System.out.println(left[i] + fill('.', 79 - left[i].length() - right[i].length()) + right[i]);
         }
     }
 
@@ -130,88 +128,53 @@ public class Data {
     public static void refresh(ArrayList<Creature> inUse) {
         System.out.println();
         System.out.printf("\t[1][%s][%s]", inUse.get(0).getRole(), inUse.get(0).getRace());
-        for (int n = 0; n < 25 - inUse.get(0).getRole().length() - inUse.get(0).getRace().length(); n++) {
-            System.out.print(" ");
-        }
+        System.out.print(fill(' ', 25 - inUse.get(0).getRole().length() - inUse.get(0).getRace().length()));
         System.out.printf("[2][%s][%s]\n\n", inUse.get(1).getRole(), inUse.get(1).getRace());
         System.out.print("\t[GENERAL]                       [GENERAL]\n");
+        //
         System.out.printf("\tHealth:      %d", inUse.get(0).getHealth());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getHealth()).length()
-                - String.valueOf(inUse.get(1).getHealth()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getHealth()).length() - String.valueOf(inUse.get(1).getHealth()).length()));
         System.out.printf("\tHealth:      %d\n", inUse.get(1).getHealth());
-
+        //
         System.out.printf("\tMana:        %d", inUse.get(0).getMana());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getMana()).length()
-                - String.valueOf(inUse.get(1).getMana()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getMana()).length() - String.valueOf(inUse.get(1).getMana()).length()));
         System.out.printf("\tMana:        %d\n", inUse.get(1).getMana());
-
+        //
         System.out.printf("\tAttack:      %d", inUse.get(0).getAttack());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getAttack()).length()
-                - String.valueOf(inUse.get(1).getAttack()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getAttack()).length() - String.valueOf(inUse.get(1).getAttack()).length()));
         System.out.printf("\tAttack:      %d\n", inUse.get(1).getAttack());
-
+        //
         System.out.printf("\tDefense:     %d", inUse.get(0).getDefense());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getDefense()).length()
-                - String.valueOf(inUse.get(1).getDefense()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getDefense()).length() - String.valueOf(inUse.get(1).getDefense()).length()));
         System.out.printf("\tDefense:     %d\n", inUse.get(1).getDefense());
-
+        //
         System.out.printf("\tStun:        %d", inUse.get(0).getStun());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getStun()).length()
-                - String.valueOf(inUse.get(1).getStun()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getStun()).length() - String.valueOf(inUse.get(1).getStun()).length()));
         System.out.printf("\tStun:        %d\n\n", inUse.get(1).getStun());
-
+        //
         System.out.print("\t[STACKS]                        [STACKS]\n");
-
         System.out.printf("\tRegrowth:    %d", inUse.get(0).getRegrowth());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getRegrowth()).length()
-                - String.valueOf(inUse.get(1).getRegrowth()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getRegrowth()).length() - String.valueOf(inUse.get(1).getRegrowth()).length()));
         System.out.printf("\tRegrowth:    %d\n", inUse.get(1).getRegrowth());
-
+        //
         System.out.printf("\tWeakness:    %d", inUse.get(0).getWeakness());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getWeakness()).length()
-                - String.valueOf(inUse.get(1).getWeakness()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getWeakness()).length() - String.valueOf(inUse.get(1).getWeakness()).length()));
         System.out.printf("\tWeakness:    %d\n", inUse.get(1).getWeakness());
-
+        //
         System.out.printf("\tAgony:       %d", inUse.get(0).getAgony());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getAgony()).length()
-                - String.valueOf(inUse.get(1).getAgony()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getAgony()).length() - String.valueOf(inUse.get(1).getAgony()).length()));
         System.out.printf("\tAgony:       %d\n", inUse.get(1).getAgony());
-
+        //
         System.out.printf("\tBleed:       %d", inUse.get(0).getBleed());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getBleed()).length()
-                - String.valueOf(inUse.get(1).getBleed()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getBleed()).length() - String.valueOf(inUse.get(1).getBleed()).length()));
         System.out.printf("\tBleed:       %d\n", inUse.get(1).getBleed());
-
+        //
         System.out.printf("\tPoison:      %d", inUse.get(0).getPoison());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getPoison()).length()
-                - String.valueOf(inUse.get(1).getPoison()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getPoison()).length() - String.valueOf(inUse.get(1).getPoison()).length()));
         System.out.printf("\tPoison:      %d\n", inUse.get(1).getPoison());
-
+        //
         System.out.printf("\tCurse:       %d", inUse.get(0).getCurse());
-        for (int n = 0; n < 19
-                - String.valueOf(inUse.get(0).getCurse()).length()
-                - String.valueOf(inUse.get(1).getCurse()).length(); n++)
-            System.out.print(" ");
+        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getCurse()).length() - String.valueOf(inUse.get(1).getCurse()).length()));
         System.out.printf("\tCurse:       %d\n\n", inUse.get(1).getCurse());
     }
 
@@ -240,4 +203,18 @@ public class Data {
             return false;
         }
     }
+
+    /**
+     * Creates a filling string.
+     * @param character the character used to create the filling string.
+     * @param length the length of the string.
+     * @return String
+     */
+    private static String fill(char character, int length) {
+        // Creates an array of characters with proper length and fills it with dots.
+        char[] array = new char[length];
+        Arrays.fill(array, character);
+        return new String(array);
+    }
+
 }
