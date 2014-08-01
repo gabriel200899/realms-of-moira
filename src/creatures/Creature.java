@@ -13,7 +13,7 @@ public class Creature {
 	private ArrayList<Integer> skillsMana = new ArrayList<Integer>();
 
 	// We add a kill counter
-	private KillCounter;
+	private KillCounter killCounter;
 	
 	private int level = 1;
 	private int experience = 0;
@@ -484,8 +484,62 @@ public class Creature {
 		System.out.println("You got " + creature.experience + " experience points.");
 	}
 
+	public KillCounter getKillCounter() {
+		return killCounter;
+	}
+
 }
 
 class KillCounter {
-	// Implement this.
+	
+	private ArrayList<Counter> counters;
+	
+	/**
+	 * Adds a kill count.
+	 * @param type
+	 */
+	public void add(String type) {
+		for (Counter counter : this.counters) {
+			if (counter.getType() == type) {
+				counter.increment();
+				return;
+			}
+		}
+		// We need to create a new counter.
+		this.counters.add(new Counter(type));
+	}
+	
+	public int get(String type) {
+		for (Counter counter : this.counters) {
+			if (counter.getType() == type) {
+				return counter.getValue();
+			}
+		}
+		// If there is no counter for type, return 0.
+		return 0;
+	}
+}
+
+class Counter {
+
+	private String type;
+	private int amount = 0;
+	
+	public Counter(String type)
+	{
+		this.type = type;
+	}
+	
+	public String getType() {
+		return this.type;
+	}
+	
+	public void increment() {
+		this.amount++;
+	}
+	
+	public int getValue() {
+		return this.amount;
+	}
+	
 }
