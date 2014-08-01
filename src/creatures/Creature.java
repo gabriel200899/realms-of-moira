@@ -12,8 +12,8 @@ public class Creature {
 	private ArrayList<String> skillsArray = new ArrayList<String>();
 	private ArrayList<Integer> skillsMana = new ArrayList<Integer>();
 
-	// We add a kill counter
-	private KillCounter killCounter;
+	// We add a kill counter.
+	private KillCounter killCounter = new KillCounter();
 	
 	private int level = 1;
 	private int experience = 0;
@@ -484,21 +484,32 @@ public class Creature {
 		System.out.println("You got " + creature.experience + " experience points.");
 	}
 
-	public KillCounter getKillCounter() {
-		return killCounter;
+	public void addKill(String type) {
+		this.killCounter.addKill(type);
+	}
+	
+	/**
+	 * Returns a string with all kill counters.
+	 */
+	public String getKillCount() {
+		return this.killCounter.getKillCount();
+	}
+	
+	public int getKillCount(String type) {
+		return this.killCounter.getKillCount(type);
 	}
 
 }
 
 class KillCounter {
 	
-	private ArrayList<Counter> counters;
+	private ArrayList<Counter> counters = new ArrayList<Counter>();
 	
 	/**
 	 * Adds a kill count.
 	 * @param type
 	 */
-	public void add(String type) {
+	public void addKill(String type) {
 		for (Counter counter : this.counters) {
 			if (counter.getType() == type) {
 				counter.increment();
@@ -506,13 +517,29 @@ class KillCounter {
 			}
 		}
 		// We need to create a new counter.
-		this.counters.add(new Counter(type));
+		Counter newCounter = new Counter(type);
+		// Increment it.
+		newCounter.increment();
+		// Add it to the counters ArrayList.
+		this.counters.add(newCounter);
 	}
 	
-	public int get(String type) {
+	public String getKillCount() {
+		if (this.counters.size() > 0) {
+			String string = String.format("%-12s:%12s", "Type", "amount");
+			for (Counter counter : this.counters) {
+				string += String.format("\n%-12s:%12d", counter.getType(), counter.getAmount());
+			}
+			return string;
+		} else {
+			return "You haven't killed anything yet.";
+		}
+	}
+	
+	public int getKillCount(String type) {
 		for (Counter counter : this.counters) {
 			if (counter.getType() == type) {
-				return counter.getValue();
+				return counter.getAmount();
 			}
 		}
 		// If there is no counter for type, return 0.
@@ -538,7 +565,7 @@ class Counter {
 		this.amount++;
 	}
 	
-	public int getValue() {
+	public int getAmount() {
 		return this.amount;
 	}
 	

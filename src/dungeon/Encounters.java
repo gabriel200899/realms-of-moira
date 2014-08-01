@@ -26,13 +26,13 @@ final class Encounters {
 		System.out.println(blankLine);
 		DungeonEngine.inUse.add(new Bat(1));
 		DungeonEngine.startBattle();
-		System.out.println("strings.");
+		System.out.println("You killed the bat. Good.");
 	}
 
 	static void encounter2() {
 		System.out.println(blankLine);
 		System.out.println("As you walk into the darkness you hear a wolf.");
-		System.out.println("It starts running in your direction.");
+		System.out.println("It starts to run in your direction.");
 		System.out.println("Kill it to earn experience points and gold.");
 		System.out.println(blankLine);
 		DungeonEngine.inUse.add(new Wolf(1));

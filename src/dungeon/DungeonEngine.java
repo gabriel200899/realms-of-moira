@@ -39,6 +39,7 @@ public class DungeonEngine {
 			inUse.add(new Priest(selected[1]));
 	}
 
+	// TODO: make an actual plot.
 	private static void startPlot() {
 		for (int n = 0; n < 100; n++) {
 			Encounters.encounter1();
@@ -65,14 +66,12 @@ public class DungeonEngine {
 		Data.refresh(inUse);
 		if (inUse.get(0).getStun() == 0) {
 			System.out.println("Your turn.");
-			Data.printArray(inUse.get(0).getSkills(), inUse.get(0)
-					.getSkillsInfo());
+			Data.printArray(inUse.get(0).getSkills(), inUse.get(0).getSkillsInfo());
 			int skill = -1;
 			while (skill == -1) {
 				System.out.print("Skill: ");
-				skill = Data.getInput(6, inUse.get(0).getSkillsArray());
-				if (inUse.get(0).getSkillsMana()[skill - 1] <= inUse.get(0)
-						.getMana())
+				skill = Data.getInput(6, inUse.get(0).getSkillsArray(), inUse.get(0));
+				if (inUse.get(0).getSkillsMana()[skill - 1] <= inUse.get(0).getMana())
 					break;
 				else
 					System.out.println("Not enough mana.");
@@ -117,6 +116,7 @@ public class DungeonEngine {
 
 	private static void endBattle() {
 		inUse.get(0).getDrops(inUse.get(1));
+		inUse.get(0).addKill(inUse.get(1).getRole());
 		inUse.get(0).evaluateLevel();
 		inUse.remove(1);
 	}

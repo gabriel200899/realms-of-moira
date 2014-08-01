@@ -28,21 +28,19 @@ public class DuelEngine {
 
 	public static void create() {
 
-		int firstRole = Data
-				.getPlayerRole("Select the first character's class:");
+		int firstRole = Data.getPlayerRole("Select the first character's class:");
 
 		System.out.println("Select first character's race:");
 		Data.printArray(Data.availableRaces, Data.availableRacesInfo);
 		System.out.print("Input: ");
-		int firstRace = Data.getInput(4, Data.availableRacesArray);
+		int firstRace = Data.getInput(4, Data.availableRacesArray, null);
 
-		int secondRole = Data
-				.getPlayerRole("Select the second character's class:");
+		int secondRole = Data.getPlayerRole("Select the second character's class:");
 
 		System.out.println("Select second character's race:");
 		Data.printArray(Data.availableRaces, Data.availableRacesInfo);
 		System.out.print("Input: ");
-		int secondRace = Data.getInput(4, Data.availableRacesArray);
+		int secondRace = Data.getInput(4, Data.availableRacesArray, null);
 
 		int[] firstCharacter = { firstRole, firstRace };
 		int[] secondCharacter = { secondRole, secondRace };
@@ -53,9 +51,11 @@ public class DuelEngine {
 	public static void endGame() {
 		if (inUse.get(0).isAlive()) {
 			System.out.printf("%s is dead! %s wins!\n", inUse.get(1).getRole(),	inUse.get(0).getRole());
+			inUse.get(0).addKill(inUse.get(1).getRole());
 			inUse.get(0).evaluateLevel();
 		} else {
 			System.out.printf("%s is dead! %s wins!\n", inUse.get(0).getRole(), inUse.get(1).getRole());
+			inUse.get(0).addKill(inUse.get(1).getRole());
 			inUse.get(1).evaluateLevel();
 		}
 	}
@@ -105,7 +105,7 @@ public class DuelEngine {
 			int skill = -1;
 			while (skill == -1) {
 				System.out.print("Skill: ");
-				skill = Data.getInput(6, player.getSkillsArray());
+				skill = Data.getInput(6, player.getSkillsArray(), player);
 				if (player.getSkillsMana()[skill - 1] <= player.getMana())
 					break;
 				else

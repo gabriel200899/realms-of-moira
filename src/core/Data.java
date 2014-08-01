@@ -46,7 +46,7 @@ public class Data {
 		System.out.println("[3] Exit");
 		System.out.print("Input: ");
 		String[] array = { "duel", "dungeon", "quit" };
-		int givenInt = getInput(3, array);
+		int givenInt = getInput(3, array, null);
 		if (givenInt == 1)
 			DuelEngine.start();
 		else if (givenInt == 2)
@@ -64,7 +64,7 @@ public class Data {
 		}
 	}
 
-	public static int getInput(int max, String[] array) {
+	public static int getInput(int max, String[] array, Creature caller) {
 		while (true) {
 			if (input.hasNextLine()) {
 				if (input.hasNextInt()) {
@@ -75,7 +75,7 @@ public class Data {
 					String givenString = input.next().toLowerCase();
 					givenString = givenString.replaceAll("\\s", "").replaceAll("\\W", "");
 					// Checks if the user issued a valid command.
-					if (commandCheck(givenString)) {
+					if (commandCheck(givenString, caller)) {
 						// We do not say that we have an invalid input.
 						System.out.print("Input: ");
 						input.nextLine();
@@ -98,7 +98,7 @@ public class Data {
 			if (input.hasNext()) {
 				String givenString = input.next();
 				// Checks if the user issued a valid command.
-				if (commandCheck(givenString))
+				if (commandCheck(givenString, null))
 					continue;
 				if (givenString.length() > 4)
 					return givenString;
@@ -114,16 +114,17 @@ public class Data {
 		System.out.println(question);
 		Data.printArray(Data.availableClasses, Data.availableClassesInfo);
 		System.out.print("Input: ");
-		return Data.getInput(4, Data.availableClassesArray);
+		return Data.getInput(4, Data.availableClassesArray, null);
 	}
 
 	public static int getPlayerRace(String question) {
 		System.out.println(question);
 		Data.printArray(Data.availableRaces, Data.availableRacesInfo);
 		System.out.print("Input: ");
-		return Data.getInput(4, Data.availableRacesArray);
+		return Data.getInput(4, Data.availableRacesArray, null);
 	}
 
+	// TODO: find a better and faster way to print all this stuff.
 	public static void refresh(ArrayList<Creature> inUse) {
 		System.out.println();
 		System.out.printf("\t[1][%s][%s]", inUse.get(0).getRole(), inUse.get(0)
@@ -216,17 +217,26 @@ public class Data {
 		System.out.printf("\tCurse:       %d\n\n", inUse.get(1).getCurse());
 	}
 
-	private static boolean commandCheck(String givenString) {
-		String string = givenString.replaceAll("\\s", "").replaceAll("\\W", "");
+	private static boolean commandCheck(String givenString, Creature caller) {
 		// "exit" - exits the application
 		// "quit" - exits the application
-		if (string.equals("exit") || string.equals("quit")) {
+		if (givenString.equals("exit") || givenString.equals("quit")) {
 			System.exit(0);
 			return false;
 		}
 		// "time" - prints the current time
-		else if (string.equals("time")) {
+		else if (givenString.equals("time")) {
 			System.out.println(dateFormat.format(new Date()));
+			return true;
+		}
+		// "counters" - gets all the kill counters
+		else if (givenString.equals("counters")) {
+			if (caller != null) {
+				// Prints a string with all already initialized counters.
+				System.out.println(caller.getKillCount());
+			} else {
+				System.out.println("This function is not available now.");
+			}
 			return true;
 		}
 		else {
