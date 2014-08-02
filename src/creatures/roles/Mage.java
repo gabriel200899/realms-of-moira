@@ -47,6 +47,7 @@ public class Mage extends Creature {
 	@Override
 	public void skill1(Creature target) {
 		if (this.evaluateHit(80)) {
+            this.setMana(this.getMana() - this.getSkillsMana()[1]);
 			target.instantDamage(20 + this.getAttack());
 			System.out.println("Hit!");
 		} else
@@ -56,6 +57,7 @@ public class Mage extends Creature {
 	@Override
 	public void skill2(Creature target) {
 		if (this.evaluateHit(60)) {
+            this.setMana(this.getMana() - this.getSkillsMana()[2]);
 			target.instantDamage(40 + this.getAttack());
 			System.out.println("Hit!");
 		} else
@@ -65,6 +67,7 @@ public class Mage extends Creature {
 	@Override
 	public void skill3(Creature target) {
 		if (this.evaluateHit(80)) {
+            this.setMana(this.getMana() - this.getSkillsMana()[3]);
 			target.setWeakness(target.getWeakness() + 1);
 			System.out.println("Hit!");
 		} else
@@ -74,6 +77,7 @@ public class Mage extends Creature {
 	@Override
 	public void skill4(Creature target) {
 		if (this.evaluateHit(80)) {
+            this.setMana(this.getMana() - this.getSkillsMana()[4]);
 			target.setAgony(target.getAgony() + 1);
 			System.out.println("Hit!");
 		} else

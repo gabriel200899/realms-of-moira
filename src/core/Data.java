@@ -131,14 +131,16 @@ public class Data {
         System.out.print(fill(' ', 25 - inUse.get(0).getRole().length() - inUse.get(0).getRace().length()));
         System.out.printf("[2][%s][%s]\n\n", inUse.get(1).getRole(), inUse.get(1).getRace());
         System.out.print("\t[GENERAL]                       [GENERAL]\n");
+        // TODO: use this idea
+        System.out.printf("\tHealth:%7d%18sHealth:%7d\n", inUse.get(0).getHealth(), "", inUse.get(1).getHealth());
+        //System.out.printf("\tHealth:      %d", inUse.get(0).getHealth());
+        //System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getHealth()).length() - String.valueOf(inUse.get(1).getHealth()).length()));
+        //System.out.printf("\tHealth:      %d\n", inUse.get(1).getHealth());
         //
-        System.out.printf("\tHealth:      %d", inUse.get(0).getHealth());
-        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getHealth()).length() - String.valueOf(inUse.get(1).getHealth()).length()));
-        System.out.printf("\tHealth:      %d\n", inUse.get(1).getHealth());
-        //
-        System.out.printf("\tMana:        %d", inUse.get(0).getMana());
-        System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getMana()).length() - String.valueOf(inUse.get(1).getMana()).length()));
-        System.out.printf("\tMana:        %d\n", inUse.get(1).getMana());
+        System.out.printf("\tMana:%9d%18sMana:%9d\n", inUse.get(0).getMana(), "", inUse.get(1).getMana());
+        //System.out.printf("\tMana:        %d", inUse.get(0).getMana());
+        //System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getMana()).length() - String.valueOf(inUse.get(1).getMana()).length()));
+        //System.out.printf("\tMana:        %d\n", inUse.get(1).getMana());
         //
         System.out.printf("\tAttack:      %d", inUse.get(0).getAttack());
         System.out.print(fill(' ', 19 - String.valueOf(inUse.get(0).getAttack()).length() - String.valueOf(inUse.get(1).getAttack()).length()));

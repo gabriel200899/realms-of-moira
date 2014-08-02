@@ -51,6 +51,7 @@ public class Rogue extends Creature {
 			if (damage < 0)
 				damage = 0;
 			target.setHealth(target.getHealth() - damage);
+            this.setMana(this.getMana() - this.getSkillsMana()[1]);
 			System.out.println("Hit!");
 		} else
 			System.out.println("Miss!");
@@ -63,6 +64,7 @@ public class Rogue extends Creature {
 			if (damage < 0)
 				damage = 0;
 			target.setHealth(target.getHealth() - damage);
+            this.setMana(this.getMana() - this.getSkillsMana()[2]);
 			System.out.println("Hit!");
 		} else
 			System.out.println("Miss!");
@@ -72,6 +74,7 @@ public class Rogue extends Creature {
 	public void skill3(Creature target) {
 		if (this.evaluateHit(60)) {
 			target.setStun(target.getStun() + 2);
+            this.setMana(this.getMana() - this.getSkillsMana()[3]);
 			System.out.println("Hit!");
 		} else
 			System.out.println("Miss!");
@@ -81,6 +84,7 @@ public class Rogue extends Creature {
 	public void skill4(Creature target) {
 		if (this.evaluateHit(40)) {
 			target.setBleed(target.getBleed() + 1);
+            this.setMana(this.getMana() - this.getSkillsMana()[4]);
 			System.out.println("Hit!");
 		} else
 			System.out.println("Miss!");
