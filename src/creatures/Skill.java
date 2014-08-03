@@ -20,6 +20,11 @@ public class Skill {
 	{
         this.name = name;
     }
+	
+	/** Not yet implemented leveling method. */
+	public void levelUp() {
+	
+	}
 
 	public String getName() {
 		return name;

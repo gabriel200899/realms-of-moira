@@ -6,6 +6,8 @@ public class Creature {
 
 	private String name, role, race;
 
+	/** This is a temporary ArrayList to store Skill objects. */
+	private ArrayList<Skill> skillSet = new ArrayList<Skill>();
 
 	// TODO: make skill a class, so we only use one ArrayList.
     // private ArrayList<Skill> skills = new ArrayList<Skill>();
@@ -86,6 +88,21 @@ public class Creature {
 
 	public void skill6(Creature it) {
 	}
+	
+	/** This method adds a skill to the Creature's skill set. */
+	public void addSkill(Skill skill) {
+	    this.skillSet.add(skill);
+	}
+	
+	/** This method gets a skill from the Creature's skill set. */
+    public Skill getSkill(int position) {
+        return this.skillSet.get(position);
+    }
+    
+	/** This method levels up a skill in the Creature's skill set. */
+	public void levelUpSkill(int position) {
+        this.skillSet.get(position).levelUp();
+    }
 
 	public int evaluatePeriodicDamage() {
 		int periodicDamage = 0;
