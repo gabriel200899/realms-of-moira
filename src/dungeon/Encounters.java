@@ -3,40 +3,29 @@ package dungeon;
 import creatures.foes.Bat;
 import creatures.foes.Wolf;
 
-// TODO: reduce the amount of print calls. This will make the code significantly faster.
-// This applies to the whole project.
 
 final class Encounters {
 
-	// A string with 78 '=', used as a separator.
-	static final String blankLine = "===============================================================================";
-	static final String encounter1Dialog = "You are in a dark cave.\n"
-			+ "You hear something flying in your direction.\n"
-			+ "The dim light that enters the cave reveals a bat.\n"
-			+ "Kill it to earn experience points and gold.";
-	// TODO: create encounter2dialog.
-	
-	static void encounter1() {
-		System.out.println(blankLine);
-//		System.out.println("You are in a dark cave.");
-//		System.out.println("You hear something flying in your direction.");
-//		System.out.println("The dim light that enters the cave reveals a bat.");
-//		System.out.println("Kill it to earn experience points and gold.");
-		System.out.println(encounter1Dialog);
-		System.out.println(blankLine);
-		DungeonEngine.inUse.add(new Bat(1));
-		DungeonEngine.startBattle();
-		System.out.println("You killed the bat. Good.");
-	}
+    // A string with 78 '=', used as a separator.
+    private static final String BLANK_LINE = "===============================================================================";
+    private static final String ENCOUNTER_1_DIALOG = "You are in a dark cave.\nYou hear something flying in your direction.\nThe dim light that enters the cave reveals a bat.\nKill it to earn experience points and gold.";
+    private static final String ENCOUNTER_2_DIALOG = "As you walk into the darkness you hear a wolf.\nIt starts to run in your direction.\nKill it to earn experience points and gold.";
+    
+    static void encounter1() {
+        System.out.println(BLANK_LINE);
+        System.out.println(ENCOUNTER_1_DIALOG);
+        System.out.println(BLANK_LINE);
+        DungeonEngine.inUse.add(new Bat(1));
+        DungeonEngine.startBattle();
+        System.out.println("You killed the bat. Good.");
+    }
 
-	static void encounter2() {
-		System.out.println(blankLine);
-		System.out.println("As you walk into the darkness you hear a wolf.");
-		System.out.println("It starts to run in your direction.");
-		System.out.println("Kill it to earn experience points and gold.");
-		System.out.println(blankLine);
-		DungeonEngine.inUse.add(new Wolf(1));
-		DungeonEngine.startBattle();
-		System.out.println("You defeated the wolf. Great.");
-	}
+    static void encounter2() {
+        System.out.println(BLANK_LINE);
+        System.out.println(ENCOUNTER_2_DIALOG);
+        System.out.println(BLANK_LINE);
+        DungeonEngine.inUse.add(new Wolf(1));
+        DungeonEngine.startBattle();
+        System.out.println("You defeated the wolf. Great.");
+    }
 }
