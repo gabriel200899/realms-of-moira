@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Inventory {
 
     // How many items can the inventory store.
-    private int size;
+    private int maxSize;
     
     /** Current weight. */
     private int curWeight = 0;
@@ -16,7 +16,7 @@ public class Inventory {
     private ArrayList<Item> inventory = new ArrayList<Item>();
 
     public Inventory(int size, int weight) {
-        this.size = size;
+        this.maxSize = size;
         this.maxWeight = weight;
     }
     
@@ -26,7 +26,7 @@ public class Inventory {
      *         false otherwise.
      */
     public boolean add(Item item) {
-        if (this.inventory.size() < this.size && this.curWeight + item.getWeight() <= this.maxWeight) {
+        if (this.inventory.size() < this.maxSize && this.curWeight + item.getWeight() <= this.maxWeight) {
             this.inventory.add(item);
             return true;
         } else {
